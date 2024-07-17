@@ -1,0 +1,38 @@
+@BookStore.Web_HostAddress = https://localhost:7171
+
+GET {{BookStore.Web_HostAddress}}/books
+Accept: application/json
+  
+###
+
+POST {{BookStore.Web_HostAddress}}/books
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": "b89f6cd7-4693-457b-9009-02205dbbfe45",
+  "title": "Modular Monoliths - Getting Started",
+  "author": "Steve Smith",
+  "price": 29.99
+}
+
+###
+
+# Test the location header
+GET {{BookStore.Web_HostAddress}}/books/b89f6cd7-4693-457b-9009-02205dbbfe45
+Accept: application/json
+
+###
+
+DELETE {{BookStore.Web_HostAddress}}/books/b89f6cd7-4693-457b-9009-02205dbbfe45
+Accept: application/json
+
+###
+
+POST {{BookStore.Web_HostAddress}}/books/b89f6cd7-4693-457b-9009-02205dbbfe45/pricehistory
+Accept: application/json
+Content-Type: application/json
+
+{
+  "newPrice": -9.99
+}
